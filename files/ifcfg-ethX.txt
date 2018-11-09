@@ -1,4 +1,4 @@
-# Network config file
+# Network config template
 # Template used to configure new vm with static ip address
 
 TYPE=Ethernet

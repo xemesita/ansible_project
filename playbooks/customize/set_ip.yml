@@ -1,4 +1,8 @@
-- name: Set ipv4
+# Example: ansible-playbook set_ip.yml -e 'ansible_user=user'
+# The playbook set an static ipv4 address
+# Requires: network config template
+
+- name: Set static ipv4 ip address
   hosts: servers
   tasks:
     - name: copy a new network file, backing up the original
@@ -9,7 +13,6 @@
         group: root
         mode: 0644
         backup: yes
-
 
     - name: restart network
       service:
