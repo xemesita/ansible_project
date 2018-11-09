@@ -1,11 +1,12 @@
-#play
+# Example: ansible-playbook authorized_keys.yml -i servers_list -e 'ansible_user=user' -k
+# The playbook adds an ssh key to server(s) listed
+# Requires: ssh key of the origin
+
 - name: set authorized key
-  hosts: all
-  #identar
+  hosts: [CREATE INVENTORY FILE WITH YOUR SERVERS]
+
   tasks:
     - authorized_key:
-          #user
-          user=root
-          state=present
-          key="{{ lookup('file','id_rsa_ansible.pub')}}"
-          ###el comment
+        user=[USER TO CONNECT IN DESTINATION SERVER]
+        state=present
+        key="{{ lookup('file','[PATH OF SSH KEY]')}}"
