@@ -1,0 +1,32 @@
+# Example: ansible-playbook gce-rmweb.yml
+# Usage: Playbook to delete web server on gce
+---
+- name: Playbook to delete gce instance (web server)
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    service_account_email: xeme08@ansibleprojects.iam.gserviceaccount.com
+    credentials_file: ansibleprojects-0770f492ec99.json
+    project_id: ansibleprojects
+    instance_names: wsrv01,wsrv02,wsrv03
+  
+  tasks:
+    - name: Delete fw rule to allow http traffic
+      gce_net:
+        fwname: "my-http-fw-rule"
+        state: absent
+        service_account_email: "{{ service_account_email }}"
+        credentials_file: "{{ credentials_file }}"
+        project_id: "{{ project_id }}"
+
+    - name: Delete an instance
+      gce:
+        zone: us-east1-b
+        instance_names: "{{ instance_names }}"
+        state: absent
+        service_account_email: "{{ service_account_email }}"
+        credentials_file: "{{ credentials_file }}"
+        project_id: "{{ project_id }}"
+    

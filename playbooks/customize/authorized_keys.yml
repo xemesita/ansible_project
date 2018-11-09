@@ -1,0 +1,11 @@
+#play
+- name: set authorized key
+  hosts: all
+  #identar
+  tasks:
+    - authorized_key:
+          #user
+          user=root
+          state=present
+          key="{{ lookup('file','id_rsa_ansible.pub')}}"
+          ###el comment
