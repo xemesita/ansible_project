@@ -1,10 +1,13 @@
+# Network config file
+# Template used to configure new vm with static ip address
+
 TYPE=Ethernet
 BOOTPROTO=static
-DEFROUTE=yes
-NAME=[Otro device]
-DEVICE=eth0
+DEFROUTE=yes[IF GW IS ON OTHER DEVICE write no]
+NAME=[YOUR NAME DEVICE]
+DEVICE=[YOUR DEVICE]
 ONBOOT=yes
-IPADDR=192.168.122.13
-PREFIX=24
-GATEWAY=192.168.122.1
-DNS1=192.168.122.1
+IPADDR=[YOUR IP]
+PREFIX=[YOUR SUBNET]
+GATEWAY=[YOUR GW]
+DNS1=[YOUR DNS_OPTIONAL]
