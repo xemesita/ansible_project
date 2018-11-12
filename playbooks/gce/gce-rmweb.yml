@@ -7,11 +7,11 @@
   gather_facts: false
 
   vars:
-    service_account_email: xeme08@ansibleprojects.iam.gserviceaccount.com
-    credentials_file: ansibleprojects-0770f492ec99.json
-    project_id: ansibleprojects
+    sservice_account_email: [service_account_email]
+    credentials_file: [file.json]
+    project_id: [project name]
     instance_names: wsrv01,wsrv02,wsrv03
-  
+
   tasks:
     - name: Delete fw rule to allow http traffic
       gce_net:
@@ -29,4 +29,3 @@
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"
         project_id: "{{ project_id }}"
-    

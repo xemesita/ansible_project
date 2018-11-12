@@ -1,7 +1,7 @@
 # Example: ansible-playbook authorized_keys.yml -i servers_list -e 'ansible_user=user' -k
 # The playbook adds an ssh key to server(s) listed on a file
 # Requires: ssh key of the origin, servers list file
-
+---
 - name: set authorized key
   hosts: [CREATE INVENTORY FILE WITH YOUR SERVERS]
 

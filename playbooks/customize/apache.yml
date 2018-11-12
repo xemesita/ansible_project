@@ -1,3 +1,6 @@
+# Example: ansible-playbook apache.yml
+# Website rol configures apache and firewalld
+# Requires: roles/website/...
 ---
 - name: setup apache on webservers
   hosts: vms

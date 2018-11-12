@@ -1,6 +1,6 @@
 # Network config template
 # Template used to configure new vm with static ip address
-
+# Used by: set_ip.yml
 TYPE=Ethernet
 BOOTPROTO=static
 DEFROUTE=yes[IF GW IS ON OTHER DEVICE write no]

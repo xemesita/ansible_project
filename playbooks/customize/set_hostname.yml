@@ -1,3 +1,7 @@
+# Example: set_hostname.yml -e 'ansible_user=root'
+# The playbook modifies the hostname according to name and ip address given
+# Requires: ansible.cfg / inventory
+---
 - name: Set hostname
   hosts: servers
   vars:

@@ -1,10 +1,13 @@
+# Example: ansible-playbook sat_hosts.yml
+# The playbook adds server to /etc/hosts file on a list of servers
+# Requires: ansible.cfg / inventory
 ---
 - name: set hostname
   hosts: servers
   tasks:
-    
+
     - name: add satellite host
       lineinfile:
         path: /etc/hosts
-        line: '10.193.140.52  srv5.tsmx.lab srv5'
+        line: '[IP_ADDR NAME_RESOLUTION]'
         state: present

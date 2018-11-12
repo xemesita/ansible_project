@@ -1,15 +1,15 @@
 # Example: ansible-playbook gce-rmlb.yml
-# Usage: Playbook to delete a load balancer on gce 
+# Usage: Playbook to delete a load balancer on gce
 ---
 - name: Playbook to delete a load balancer on gce
   hosts: localhost
   connection: local
   gather_facts: no
-  
+
   vars:
-    service_account_email: xeme08@ansibleprojects.iam.gserviceaccount.com
-    credentials_file: ansibleprojects-0770f492ec99.json
-    project_id: ansibleprojects
+    service_account_email: [service_account_email]
+    credentials_file: [file.json]
+    project_id: [project name]
 
   tasks:
     - name: Delete load balancer
@@ -19,4 +19,3 @@
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"
         project_id: "{{ project_id }}"
-
