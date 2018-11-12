@@ -1,6 +1,0 @@
-# Example: ansible-playbook gce-rm-web-lb.yml
-# Playbook to delete simple instances of gce centos/apache with load balancing and fw rules
-
----
-- import_playbook: gce-rmlb.yml
-- import_playbook: gce-rmweb.yml
