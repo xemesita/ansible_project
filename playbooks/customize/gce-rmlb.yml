@@ -14,7 +14,7 @@
   tasks:
     - name: Delete load balancer
       gce_lb:
-        name: lbserver
+        name: [YOUR LOAD BALANCER NAME]
         state: absent
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"

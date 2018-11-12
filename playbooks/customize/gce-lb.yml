@@ -1,6 +1,6 @@
 # Example: ansible-playbook gce-lb.yml -v
 # Playbook to create load balancer on gce
-# Requires: NA
+# Requires: google cloud services subscription
 ---
 - name: Playbook to create load balancer on gce
   hosts: localhost
@@ -15,10 +15,10 @@
   tasks:
     - name: Create load balancer
       gce_lb:
-        name: lbserver
+        name: [YOUR LOAD BALANCER NAME]
         state: present
         region:  us-east1
-        members: ['us-east1-b/wsrv01','us-east1-b/wsrv02','us-east1-b/wsrv03']
+        members: ['us-east1-b/[YOUR MACHINE]]','us-east1-b/[YOUR MACHINE]','us-east1-b/[YOUR MACHINE]']
         httphealthcheck_name: hc
         httphealthcheck_port: 80
         httphealthcheck_path: "/"

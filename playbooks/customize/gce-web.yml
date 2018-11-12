@@ -1,3 +1,5 @@
+# Example: ansible-playbook gce-web.yml
+# Usage: Playbook to create simple instances of gce centos/apache with load balancing
 ---
 - name: Playbook to create gce instance (web server)
   hosts: localhost
@@ -10,13 +12,13 @@
     project_id: [project name]
     machine_type: n1-standard-1
     image: centos-7
-    instance_names: wsrv01,wsrv02,wsrv03
+    instance_names: [YOUR VM1,VM2,VM3]
 
   tasks:
     - name: Create fw rule to allow http traffic
       gce_net:
         name: default
-        fwname: "my-http-fw-rule"
+        fwname: "[YOUR FW RULE NAME]"
         allowed: tcp:80
         state: present
         src_range: "0.0.0.0/0"
@@ -38,7 +40,7 @@
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"
         project_id: "{{ project_id }}"
-        metadata: '{"sshKeys":"cruz_danae:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHTGVAo1/LsY5lX71qiJXeWCkQQ1ECZkRyTLk3rMKSNDGSefReUzYXfKGKPeuQljUU9DcyDiNZmW4Xnb8K1ic050SWZMJwUQ+jS/cItcnrCgZo4coMKRUCB64V2I7JygbKr6qBj1Hg0b992uYvPeqYioipOrcaJOB3VCW+zNo+PEucItfEhbelVRKYFhiFSS5onoiDormpzc7DI5zNKZ4tpLfPS4QJZNc9c/uX8nl2jdzeKrJsZwBkDbX+WJLpGfl2L/fqCzmgkLViSLZbptT3cDiFqjlL0f2vdYWCyhpnEtAJnjuXEJzUM6e15+oEsns/10euC+KrMiSJG62mAt4qj5H+GAACTud85XnzT3toLNGIHefydSDxmwEd+bx7y5DDXH+jBWJ18RaAqcsJMbtt8+esCGKXlHs6MsuU2BWTj0gFef0LO7t5eSw7R0Lhpw6i3vBJSbyp6SdS/wqd4oEXbFd8LTIlYjTWp5vgL/4/EwMOpwUbF5rB8suMIjL1rLxRgftm//KfgzHY/qwm0fHlxqCf4M6H2QqvFSY/gx5WNgQyeYvzS+aGsGYi3ktw6fcX3NLe0sGDiaEAGfOmc1IXm14zX+CVKPZNXM7lRS8t8qxDslV/LqbH9f6i5rnNBb8ZEFHh1ZWq4/J/Qj19mzoWkczHt9UM2ZEU0tZlM0504Q== xemesita@srv2.tsmx.lab"}'
+        metadata: [SSH KEY]
       register: gce
 
     - name: Save host data within a Group
@@ -59,7 +61,7 @@
 - name: COnfigure instance post-creation
   hosts: gce_instances_temp
   gather_facts: true
-  remote_user: cruz_danae
+  remote_user: [YOUR USER]
   become: yes
   become_method: sudo
 

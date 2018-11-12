@@ -10,12 +10,12 @@
     service_account_email: [service_account_email]
     credentials_file: [file.json]
     project_id: [project name]
-    instance_names: wsrv01,wsrv02,wsrv03
+    instance_names: [YOUR VM1,VM2,VM3]
 
   tasks:
     - name: Delete fw rule to allow http traffic
       gce_net:
-        fwname: "my-http-fw-rule"
+        fwname: "[NAME OF FW RULE]"
         state: absent
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"

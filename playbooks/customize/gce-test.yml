@@ -13,7 +13,7 @@
     - name: Launch instances
       gce:
         zone: us-east1-b
-        instance_names: webserver01
+        instance_names: [YOUR VM NAME]
         machine_type: "{{ machine_type }}"
         image: "{{ image }}"
         service_account_email: "{{ service_account_email }}"
